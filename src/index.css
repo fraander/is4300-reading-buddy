@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#toolbar {
+  height: 4rem;
+}
+
+#content {
+  height: calc(100vh - 4rem);
+}

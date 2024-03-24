@@ -1,10 +1,19 @@
+import { useState } from "react";
 import "./App.css";
+import Content from "./components/layout/Content";
+import VDiv from "./components/utils/VDiv";
+import Toolbar from "./components/layout/Toolbar";
+import { pop } from "./model/routing";
+import { Route } from "./types/Route";
 
 function App() {
+  const [route, setRoute] = useState<Route>(pop());
+
   return (
-    <h1 className="text-3xl font-bold italic text-blue-500 m-auto mt-24 text-center">
-      IS 4300 - Reading Buddy
-    </h1>
+    <VDiv className="h-screen">
+      <Toolbar />
+      <Content route={route} setRoute={setRoute} />
+    </VDiv>
   );
 }
 
