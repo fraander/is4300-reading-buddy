@@ -1,11 +1,16 @@
 import HDiv from "../utils/HDiv";
+import { RouteProps, routeToTitle } from "../../types/Route";
+import BackButton from "../reused/BackButton";
+import HSpacer from "../utils/Spacer";
 
-export default function Toolbar() {
+export default function Toolbar({ route, setRoute }: RouteProps) {
   return (
     <HDiv id="toolbar" className="h-1/6 ring-8 ring-blue-700 bg-yellow-200 p-6">
-      <h1 className="font-bold font-serif text-blue-700 w-full text-center text-3xl">
-        Toolbar!
-      </h1>
+      {route !== "list" && <BackButton setRoute={setRoute} />}
+      <HSpacer />
+      <h3 className="p-2 rounded-lg bg-white italic text-blue-900 font-bold px-4">
+        {routeToTitle(route)}
+      </h3>
     </HDiv>
   );
 }

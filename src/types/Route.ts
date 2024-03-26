@@ -1,14 +1,23 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
-type Page = "list" | "draw" | "time";
+type RouteOption = "list" | "draw" | "time";
+type Route = { route: RouteOption };
 
-type Route = {
-  page: Page;
-};
+type SetRoute = { setRoute: Dispatch<SetStateAction<RouteOption>> };
 
-type RouteProps = {
-  route: Route;
-  setRoute: Dispatch<SetStateAction<Route>>;
-};
+type RouteProps = Route & SetRoute;
 
-export type { Page, Route, RouteProps };
+function routeToTitle(route: RouteOption): ReactNode {
+  switch (route) {
+    case "list":
+      return "Past Reads";
+    case "draw":
+      return "Reading ...";
+    case "time":
+      return "Reading ...";
+  }
+}
+
+export type { RouteOption, Route, SetRoute, RouteProps };
+
+export { routeToTitle };
