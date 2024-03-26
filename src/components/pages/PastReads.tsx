@@ -1,6 +1,5 @@
 import HDiv from "../utils/HDiv";
 import Spacer from "../utils/Spacer";
-import VDiv from "../utils/VDiv";
 import VList from "../utils/VList";
 
 interface Read {
