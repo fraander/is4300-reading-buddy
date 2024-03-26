@@ -6,7 +6,7 @@ import Button from "../utils/Button";
 
 export default function TimeButton({ setRoute }: SetRoute) {
   return (
-    <Button onClick={() => setRoute(push("time"))}>
+    <Button className="text-purple-600" onClick={() => setRoute(push("time"))}>
       <FontAwesomeIcon icon={faClock} /> Time
     </Button>
   );

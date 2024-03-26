@@ -6,7 +6,7 @@ import Button from "../utils/Button";
 
 export default function DrawButton({ setRoute }: SetRoute) {
   return (
-    <Button onClick={() => setRoute(push("draw"))}>
+    <Button className="text-purple-600" onClick={() => setRoute(push("draw"))}>
       <FontAwesomeIcon icon={faMarker} /> Draw
     </Button>
   );
