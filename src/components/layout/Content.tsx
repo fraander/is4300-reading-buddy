@@ -5,7 +5,7 @@ import TimeButton from "../reused/TimeButton";
 import PastReads from "../pages/PastReads";
 import TimerReadingPage from "../pages/TimerReadingPage";
 import ReadingSetup from "../pages/ReadingSetup";
-import { SetStateAction, useState } from "react";
+import { useState } from "react";
 
 export default function Content({ route, setRoute }: RouteProps) {
   const [pages, setPages] = useState<number>(0);

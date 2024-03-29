@@ -4,13 +4,12 @@ import HDiv from "../utils/HDiv";
 import Spacer from "../utils/Spacer";
 import VDiv from "../utils/VDiv";
 import {
-  faArrowLeft,
   faArrowRight,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import DogIcon from "../reused/DogIcon";
 import Timer from "../reused/Timer";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect } from "react";
 import { pop } from "../../model/routing";
 import { SetRoute } from "../../types/Route";
 
