@@ -9,6 +9,9 @@ import { RouteOption } from "./types/Route";
 function App() {
   const [route, setRoute] = useState<RouteOption>(pop());
 
+  // TODO: Have reading progress update the past reads list
+  // TODO: Show past read on its own screen
+
   return (
     <VDiv className="h-screen">
       <Toolbar route={route} setRoute={setRoute} />
