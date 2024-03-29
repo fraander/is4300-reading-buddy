@@ -45,23 +45,23 @@ function PastReadRow({ read }: { read: Read }) {
 
   return (
     <HDiv className="m-1 p-3 bg-white rounded-lg shadow-md gap-2">
-      <h2 className="font-semibold font-serif text-purple-900">{title}</h2>
+      <h2 className="font-semibold font-serif text-rbp-700">{title}</h2>
       <Spacer />
       <p
-        className={`font-mono text-xs bg-purple-100 rounded-lg p-2 min-w-20 max-w-20 text-center`}
+        className={`font-mono text-xs bg-rbp-0 rounded-lg p-2 min-w-20 max-w-20 text-center`}
       >
         {progress}
         <span className="font-thin">{" / "}</span>
         {duration}
       </p>
-      <FontAwesomeIcon className="text-purple-500" icon={faArrowRight} />
+      <FontAwesomeIcon className="text-rbp-500" icon={faArrowRight} />
     </HDiv>
   );
 }
 
 export default function PastReads() {
   return (
-    <VList className="px-4 mt-4 ring-2 ring-purple-400 pt-4 bg-slate-100">
+    <VList className="px-4 mt-4 ring-2 ring-rbp-500 pt-4 bg-rbp-0">
       {reads.map((read, i) => (
         <PastReadRow key={i} read={read} />
       ))}

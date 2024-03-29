@@ -14,7 +14,7 @@ export default function TimeButton({
 }: SetRoute & Props) {
   return (
     <Button
-      className="text-purple-600"
+      className="text-rbp-500"
       onClick={() => setRoute(push(destination))}
     >
       <FontAwesomeIcon icon={faBook} /> New Read!

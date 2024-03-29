@@ -7,7 +7,7 @@ export default function Button(props: HTMLAttributes<HTMLButtonElement>) {
   return (
     <button
       className={twMerge(
-        ` ring-purple-600 text-purple-600 font-semibold ring-2 shadow-md bg-white rounded-xl p-2 min-w-8 ${className}`
+        ` ring-rbp-500 text-rbp-500 font-semibold ring-2 shadow-md bg-white rounded-xl p-2 min-w-8 ${className}`
       )}
       {...newProps}
     >

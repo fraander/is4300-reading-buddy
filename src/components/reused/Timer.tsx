@@ -41,5 +41,9 @@ export default function Timer({ timeoutInSeconds }: Props) {
     return () => clearInterval(interval);
   });
 
-  return <div className="p-4 text-4xl font-bold font-mono bg-slate-100 rounded-lg shadow-lg text-purple-600">{fancyTimeFormat(timeLeftInSeconds)}</div>;
+  return (
+    <div className="p-4 text-4xl font-bold font-mono bg-rbp-0 rounded-lg shadow-lg text-rbp-500">
+      {fancyTimeFormat(timeLeftInSeconds)}
+    </div>
+  );
 }
