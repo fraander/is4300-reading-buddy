@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HDiv from "../utils/HDiv";
 import Spacer from "../utils/Spacer";
 import VList from "../utils/VList";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 interface Read {
   title: string;
@@ -42,16 +44,17 @@ function PastReadRow({ read }: { read: Read }) {
   const { title, duration, progress } = read;
 
   return (
-    <HDiv className="m-1 p-3 bg-white rounded-lg shadow-md">
+    <HDiv className="m-1 p-3 bg-white rounded-lg shadow-md gap-2">
       <h2 className="font-semibold font-serif text-purple-900">{title}</h2>
       <Spacer />
       <p
-        className={`font-mono text-xs bg-purple-100 rounded-lg p-2 min-w-24 max-w-24 text-center ml-3`}
+        className={`font-mono text-xs bg-purple-100 rounded-lg p-2 min-w-20 max-w-20 text-center`}
       >
         {progress}
         <span className="font-thin">{" / "}</span>
         {duration}
       </p>
+      <FontAwesomeIcon className="text-purple-500" icon={faArrowRight} />
     </HDiv>
   );
 }

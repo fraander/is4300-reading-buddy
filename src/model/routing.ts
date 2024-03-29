@@ -4,6 +4,6 @@ export function pop(): RouteOption {
   return "list";
 }
 
-export function push(page: "draw" | "time"): RouteOption {
+export function push(page: RouteOption): RouteOption {
   return page;
 }

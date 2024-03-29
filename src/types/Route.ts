@@ -1,6 +1,6 @@
 import { Dispatch, ReactNode, SetStateAction } from "react";
 
-type RouteOption = "list" | "draw" | "time";
+type RouteOption = "list" | "time" | "setup";
 type Route = { route: RouteOption };
 
 type SetRoute = { setRoute: Dispatch<SetStateAction<RouteOption>> };
@@ -11,10 +11,10 @@ function routeToTitle(route: RouteOption): ReactNode {
   switch (route) {
     case "list":
       return "Past Reads";
-    case "draw":
-      return "Reading ...";
     case "time":
-      return "Reading ...";
+      return "Currently reading ...";
+    case "setup":
+      return "Time to read ...";
   }
 }
 

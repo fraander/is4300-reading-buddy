@@ -11,11 +11,12 @@ export default function Toolbar({ route, setRoute }: RouteProps) {
     >
       {route !== "list" ? (
         <>
-          <BackButton setRoute={setRoute} />
+          {/* <BackButton setRoute={setRoute} /> */}
           <HSpacer />
           <h3 className="p-2 rounded-lg bg-white italic text-purple-900 font-bold px-4">
             {routeToTitle(route)}
           </h3>
+          <HSpacer />
         </>
       ) : (
         <HDiv>

@@ -1,13 +1,23 @@
-import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { push } from "../../model/routing";
-import { SetRoute } from "../../types/Route";
+import { RouteOption, SetRoute } from "../../types/Route";
 import Button from "../utils/Button";
 
-export default function TimeButton({ setRoute }: SetRoute) {
+interface Props {
+  destination: RouteOption;
+}
+
+export default function TimeButton({
+  setRoute,
+  destination,
+}: SetRoute & Props) {
   return (
-    <Button className="text-purple-600" onClick={() => setRoute(push("time"))}>
-      <FontAwesomeIcon icon={faClock} /> Time
+    <Button
+      className="text-purple-600"
+      onClick={() => setRoute(push(destination))}
+    >
+      <FontAwesomeIcon icon={faBook} /> New Read!
     </Button>
   );
 }
