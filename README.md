@@ -10,8 +10,24 @@ Created by Frank Anderson, Katie Pine, Rachel Bringas, and Tabby Mastrangelo
 You may also view the application deployment [at this link](https://is4300-reading-buddy.vercel.app/).
 
 ## Interface Screenshots
-
-// TODO: Add some screenshots
+<table>
+  <tr>
+    <td>
+      <img width="150" alt="past reads" src="./public/past.png">
+    </td>
+    <td>
+      <img width="150" alt="read setup" src="./public/setup.png">
+    </td>
+    <td>
+      <img width="150" alt="during reading" src="./public/reading.png">
+    </td>
+  </tr>
+   <tr>
+     <td align="center">Past Reads</td>
+     <td align="center">Reading Setup</td>
+     <td align="center">During Reading</td>
+  </tr>
+ </table>
 
 
 ## Feedback Plan
