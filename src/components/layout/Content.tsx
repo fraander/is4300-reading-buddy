@@ -1,7 +1,5 @@
 import { RouteProps } from "../../types/Route";
-import HDiv from "../utils/HDiv";
 import VDiv from "../utils/VDiv";
-import TimeButton from "../reused/TimeButton";
 import PastReads from "../pages/PastReads";
 import TimerReadingPage from "../pages/TimerReadingPage";
 import ReadingSetup from "../pages/ReadingSetup";
