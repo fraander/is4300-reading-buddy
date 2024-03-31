@@ -17,9 +17,6 @@ export default function Content({ route, setRoute }: RouteProps) {
     <VDiv id="content" className="bg-rbg-200">
       {route === "list" && (
         <>
-          <HDiv className="gap-4 pt-4">
-            <TimeButton setRoute={setRoute} destination="setup" />
-          </HDiv>
           <PastReads />
         </>
       )}
