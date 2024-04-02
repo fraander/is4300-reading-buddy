@@ -5,7 +5,6 @@ import Spacer from "../utils/Spacer";
 import VDiv from "../utils/VDiv";
 import {
   faArrowRight,
-  faArrowRightArrowLeft,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import DogIcon from "../reused/DogIcon";
@@ -39,7 +38,7 @@ export default function TimerReadingPage({
   useEffect(() => {
     setPageProgress(0);
     setTimeProgress(time);
-  }, [setPageProgress]);
+  }, [setPageProgress, time]);
 
   return (
     <VDiv className="h-full">

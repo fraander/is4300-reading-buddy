@@ -1,5 +1,4 @@
 import HDiv from "../utils/HDiv";
-import Spacer from "../utils/Spacer";
 import VList from "../utils/VList";
 
 function PastReadRow({ read }: { read: Read }) {
