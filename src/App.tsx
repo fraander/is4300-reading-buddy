@@ -6,15 +6,23 @@ import Toolbar from "./components/layout/Toolbar";
 import { pop } from "./model/routing";
 import { RouteOption } from "./types/Route";
 import { Read } from "./model/reads";
+import useLocalStorageState from "use-local-storage-state";
 
 function App() {
   const [route, setRoute] = useState<RouteOption>(pop());
-  const [reads, setReads] = useState<Read[]>([]);
+  const [reads, setReads] = useLocalStorageState<Read[]>("reads", {
+    defaultValue: [],
+  });
 
   return (
     <VDiv className="h-screen">
       <Toolbar route={route} setRoute={setRoute} />
-      <Content route={route} setRoute={setRoute} reads={reads} setReads={setReads} />
+      <Content
+        route={route}
+        setRoute={setRoute}
+        reads={reads}
+        setReads={setReads}
+      />
     </VDiv>
   );
 }
