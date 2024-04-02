@@ -5,54 +5,96 @@ import Spacer from "../utils/Spacer";
 import VDiv from "../utils/VDiv";
 import {
   faArrowRight,
+  faArrowRightArrowLeft,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import DogIcon from "../reused/DogIcon";
 import Timer from "../reused/Timer";
-import { Dispatch, SetStateAction, useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { pop } from "../../model/routing";
 import { SetRoute } from "../../types/Route";
+import { GenericRead, ReadProps } from "../../model/reads";
+import Button from "../utils/Button";
 
 interface Props {
+  title: string;
   time: number;
   pages: number;
-  progress: number;
-  setProgress: Dispatch<SetStateAction<number>>;
+  pageProgress: number;
+  setPageProgress: Dispatch<SetStateAction<number>>;
 }
 
 export default function TimerReadingPage({
+  title,
   time,
   pages,
-  progress,
-  setProgress,
+  pageProgress,
+  setPageProgress,
   setRoute,
-}: SetRoute & Props) {
-  useEffect(() => setProgress(0), [setProgress]);
+  reads,
+  setReads,
+}: SetRoute & Props & ReadProps) {
+  const [timeProgress, setTimeProgress] = useState<number>(0);
+
+  useEffect(() => {
+    setPageProgress(0);
+    setTimeProgress(time);
+  }, [setPageProgress]);
 
   return (
     <VDiv className="h-full">
       <VDiv className="bg-rbo-200 h-1/3">
-        <Timer timeoutInSeconds={time * 60} />
+        <Timer timeoutInSeconds={time * 60} setProgress={setTimeProgress} />
+        {timeProgress <= 0 && (
+          <HDiv className="mt-4 gap-4 p-3">
+            <div className="flex flex-row bg-white justify-center items-center p-4 w-96 gap-4">
+              <p className="text-xl">You did it!</p>
+              <Button
+                onClick={() => {
+                  const newRead = new GenericRead(
+                    title,
+                    timeProgress,
+                    time,
+                    pageProgress,
+                    pages
+                  );
+                  setReads([...reads, newRead]);
+                  setRoute(pop());
+                }}
+              >
+                Done <FontAwesomeIcon icon={faArrowRight} />
+              </Button>
+            </div>
+          </HDiv>
+        )}
       </VDiv>
       <VDiv className="h-2/3 px-4 bg-rbo-500 text-rbp-700 gap-2 pt-6">
         <DogIcon />
-        <h1 className="text-lg w-full mt-4 font-semibold">Progress</h1>
-        <Progress current={progress} full={pages} />
+        <h1 className="text-lg w-full mt-4 font-semibold">Page Progress</h1>
+        <Progress current={pageProgress} full={pages} />
         <HDiv>
           <Spacer />
           <button
             onClick={() => {
-              if (progress < pages) {
-                setProgress(progress + 1);
-              } else if (progress === pages) {
+              if (pageProgress < pages) {
+                setPageProgress(pageProgress + 1);
+              } else if (pageProgress === pages) {
+                const newRead = new GenericRead(
+                  title,
+                  timeProgress, 
+                  time,
+                  pageProgress,
+                  pages
+                );
+                setReads([...reads, newRead]);
                 setRoute(pop());
               }
             }}
           >
             <HDiv className="gap-1 font-semibold italic">
-              {progress === pages ? "Done!" : "Next page!"}
+              {pageProgress === pages ? "Done!" : "Next page!"}
               <FontAwesomeIcon
-                icon={progress === pages ? faCheck : faArrowRight}
+                icon={pageProgress === pages ? faCheck : faArrowRight}
               />
             </HDiv>
           </button>

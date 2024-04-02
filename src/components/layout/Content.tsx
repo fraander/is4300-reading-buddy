@@ -4,8 +4,14 @@ import PastReads from "../pages/PastReads";
 import TimerReadingPage from "../pages/TimerReadingPage";
 import ReadingSetup from "../pages/ReadingSetup";
 import { useState } from "react";
+import { ReadProps } from "../../model/reads";
 
-export default function Content({ route, setRoute }: RouteProps) {
+export default function Content({
+  route,
+  setRoute,
+  reads,
+  setReads,
+}: RouteProps & ReadProps) {
   const [pages, setPages] = useState<number>(0);
   const [time, setTime] = useState<number>(0);
   const [progress, setProgress] = useState<number>(0);
@@ -15,7 +21,7 @@ export default function Content({ route, setRoute }: RouteProps) {
     <VDiv id="content" className="bg-rbg-200">
       {route === "list" && (
         <>
-          <PastReads />
+          <PastReads reads={reads} />
         </>
       )}
       {route === "time" && (
@@ -23,8 +29,11 @@ export default function Content({ route, setRoute }: RouteProps) {
           time={time}
           pages={pages}
           setRoute={setRoute}
-          progress={progress}
-          setProgress={setProgress}
+          pageProgress={progress}
+          setPageProgress={setProgress}
+          reads={reads}
+          setReads={setReads}
+          title={bookTitle}
         />
       )}
       {route === "setup" && (

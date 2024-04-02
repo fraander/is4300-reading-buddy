@@ -1,39 +1,24 @@
-import { useEffect, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { fancyTimeFormat } from "../utils/fancyTimeFormat";
 
 interface Props {
   timeoutInSeconds: number;
+  setProgress: Dispatch<SetStateAction<number>>;
 }
 
-function fancyTimeFormat(duration: number): string {
-  // Hours, minutes and seconds
-  const hrs = ~~(duration / 3600);
-  const mins = ~~((duration % 3600) / 60);
-  const secs = ~~duration % 60;
-
-  // Output like "1:01" or "4:03:59" or "123:03:59"
-  let ret = "";
-
-  if (hrs > 0) {
-    ret += "" + hrs + ":" + (mins < 10 ? "0" : "");
-  }
-
-  ret += "" + mins + ":" + (secs < 10 ? "0" : "");
-  ret += "" + secs;
-
-  return ret;
-}
-
-export default function Timer({ timeoutInSeconds }: Props) {
+export default function Timer({ timeoutInSeconds, setProgress }: Props) {
   const [timeLeftInSeconds, setTimeLeftInSeconds] =
     useState<number>(timeoutInSeconds);
 
   useEffect(() => {
     setTimeLeftInSeconds(timeoutInSeconds);
-  }, [timeoutInSeconds]);
+  }, [timeoutInSeconds, setProgress]);
 
   useEffect(() => {
     const interval: number = setInterval(() => {
       const newTimeLeftInMillis = timeLeftInSeconds - 1;
+      setProgress(() => newTimeLeftInMillis);
+      console.log("newtime: " + Math.max(0, newTimeLeftInMillis));
       return newTimeLeftInMillis < 0
         ? clearInterval(interval)
         : setTimeLeftInSeconds(timeLeftInSeconds - 1);

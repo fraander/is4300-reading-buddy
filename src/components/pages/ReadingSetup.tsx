@@ -34,7 +34,7 @@ export default function ReadingSetup({
           What book are you reading?
         </h1>
         <input
-          className="w-full ring-2 ring-rbp-500 rounded-lg p-4"
+          className="focus:ring-rbo-700-700 outline-none focus:outline-none w-full ring-2 font-mono text-lg ring-rbp-500 rounded-lg p-4"
           value={bookTitle}
           onChange={(e) => setBookTitle(e.target.value)}
         />
@@ -45,7 +45,7 @@ export default function ReadingSetup({
         </h1>
         <input
           type="number"
-          className="w-full ring-2 ring-rbp-500 rounded-lg p-4"
+          className="focus:ring-rbo-700-700 outline-none focus:outline-none w-full ring-2 font-mono text-lg ring-rbp-500 rounded-lg p-4"
           value={time}
           onChange={(e) => setTime(Number(e.target.value))}
         />
@@ -56,7 +56,7 @@ export default function ReadingSetup({
         </h1>
         <input
           type="number"
-          className="w-full ring-2 ring-rbp-500 rounded-lg p-4"
+          className="focus:ring-rbo-700-700 outline-none focus:outline-none w-full ring-2 font-mono text-lg ring-rbp-500 rounded-lg p-4"
           value={pages}
           onChange={(e) => setPages(Number(e.target.value))}
         />

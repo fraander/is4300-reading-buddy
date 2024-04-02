@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from "react";
+
 interface Read {
   title: string;
   duration: number;
@@ -13,32 +15,26 @@ class GenericRead implements Read {
   pages: number;
   pageTarget: number;
 
-  constructor(title: string) {
+  constructor(
+    title: string,
+    progress: number,
+    duration: number,
+    pages: number,
+    pageTarget: number
+  ) {
     this.title = title;
-    this.progress = Math.floor(Math.random() * 10);
-    this.duration = this.progress + Math.floor(Math.random() * 10);
-    this.pages = Math.floor(Math.random() * 10);
-    this.pageTarget = this.pages + Math.floor(Math.random() * 10);
+    this.progress = Math.min(progress, duration);
+    this.duration = duration;
+    this.pages = pages;
+    this.pageTarget = pageTarget;
   }
 }
 
-const reads: Read[] = [
-  new GenericRead("Where the wild things are"),
-  new GenericRead("Green Eggs & Ham"),
-  new GenericRead("Very Hungry Caterpillar"),
-  new GenericRead("Where the wild things decided to go"),
-  new GenericRead("Green Eggs & Ham"),
-  new GenericRead("Very Hungry Caterpillar"),
-  new GenericRead("Where the wild things are"),
-  new GenericRead("Green Eggs & Ham"),
-  new GenericRead("Very Hungry Caterpillar"),
-  new GenericRead("Where the wild things are"),
-  new GenericRead("Green Eggs & Ham"),
-  new GenericRead("Very Hungry Caterpillar"),
-  new GenericRead("Where the wild things are"),
-  new GenericRead("Green Eggs & Ham"),
-  //   new GenericRead("Very Hungry Caterpillar"),
-];
+type SetReadProps = { setReads: Dispatch<SetStateAction<Read[]>> };
 
-export { reads, GenericRead };
-export type { Read };
+type ReadProps = {
+  reads: Read[];
+} & SetReadProps;
+
+export { GenericRead };
+export type { Read, ReadProps, SetReadProps };

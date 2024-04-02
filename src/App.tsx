@@ -5,17 +5,16 @@ import VDiv from "./components/utils/VDiv";
 import Toolbar from "./components/layout/Toolbar";
 import { pop } from "./model/routing";
 import { RouteOption } from "./types/Route";
+import { Read } from "./model/reads";
 
 function App() {
   const [route, setRoute] = useState<RouteOption>(pop());
-
-  // TODO: Have reading progress update the past reads list
-  // TODO: Show past read on its own screen
+  const [reads, setReads] = useState<Read[]>([]);
 
   return (
     <VDiv className="h-screen">
       <Toolbar route={route} setRoute={setRoute} />
-      <Content route={route} setRoute={setRoute} />
+      <Content route={route} setRoute={setRoute} reads={reads} setReads={setReads} />
     </VDiv>
   );
 }
