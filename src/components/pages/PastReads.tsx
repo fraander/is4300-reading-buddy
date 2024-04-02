@@ -24,12 +24,12 @@ function PastReadRow({ read }: { read: Read }) {
       </p>
       <p
         className={`font-mono text-xs ${
-          (duration * 60 - progress) === 0
+          duration * 60 - progress === 0
             ? "bg-rbg-200 text-white font-bold"
             : "bg-rbp-0"
         } rounded-lg p-2 min-w-20 text-center`}
       >
-        {duration - Math.max(0, progress)} // TODO: time math
+        {Math.floor( 100 * progress / 60) / 100}
         <span className="font-thin">{" / "}</span>
         {duration}
         <br />
