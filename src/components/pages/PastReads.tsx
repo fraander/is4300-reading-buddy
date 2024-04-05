@@ -42,7 +42,7 @@ import { Read } from "../../model/reads";
 export default function PastReads({ reads }: { reads: Read[] }) {
   return (
     <VList className="px-4 py-4 pb-12 bg-rbg-0 min-h-full">
-      {reads.map((read, i) => (
+      {reads.length === 0 ? "Tap 'New Read!' to get started!" : reads.map((read, i) => (
         <PastReadRow key={i} read={read} />
       ))}
     </VList>

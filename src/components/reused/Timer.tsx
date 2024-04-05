@@ -15,10 +15,10 @@ export default function Timer({ timeoutInSeconds, setProgress }: Props) {
   }, [timeoutInSeconds, setProgress]);
 
   useEffect(() => {
-    const interval: number = setInterval(() => {
+    const interval: NodeJS.Timeout = setInterval(() => {
       const newTimeLeftInMillis = timeLeftInSeconds - 1;
       setProgress(() => newTimeLeftInMillis);
-      console.log("newtime: " + Math.max(0, newTimeLeftInMillis));
+      console.log("New Time: " + Math.max(0, newTimeLeftInMillis));
       return newTimeLeftInMillis < 0
         ? clearInterval(interval)
         : setTimeLeftInSeconds(timeLeftInSeconds - 1);

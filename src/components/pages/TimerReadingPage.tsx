@@ -3,10 +3,7 @@ import Progress from "../reused/Progress";
 import HDiv from "../utils/HDiv";
 import Spacer from "../utils/Spacer";
 import VDiv from "../utils/VDiv";
-import {
-  faArrowRight,
-  faCheck,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRight, faCheck } from "@fortawesome/free-solid-svg-icons";
 import DogIcon from "../reused/DogIcon";
 import Timer from "../reused/Timer";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
@@ -42,12 +39,14 @@ export default function TimerReadingPage({
 
   return (
     <VDiv className="h-full">
-      <VDiv className="bg-rbo-200 h-1/3">
+      <VDiv className="h-full px-4 bg-rbo-500 text-rbp-700 gap-2 pt-6">
+        <VDiv className="my-20">
         <Timer timeoutInSeconds={time * 60} setProgress={setTimeProgress} />
+        </VDiv>
         {timeProgress <= 0 && (
           <HDiv className="mt-4 gap-4 p-3">
-            <div className="flex flex-row bg-white justify-center items-center p-4 w-96 gap-4">
-              <p className="text-xl">You did it!</p>
+            <div className="flex flex-row bg-white rounded-full  justify-center items-center p-4 w-96 gap-4">
+              <p className="text-xl font-serif text-rbp-700">You did it!</p>
               <Button
                 onClick={() => {
                   const newRead = new GenericRead(
@@ -66,8 +65,6 @@ export default function TimerReadingPage({
             </div>
           </HDiv>
         )}
-      </VDiv>
-      <VDiv className="h-2/3 px-4 bg-rbo-500 text-rbp-700 gap-2 pt-6">
         <DogIcon />
         <h1 className="text-lg w-full mt-4 font-semibold">Page Progress</h1>
         <Progress current={pageProgress} full={pages} />
@@ -80,7 +77,7 @@ export default function TimerReadingPage({
               } else if (pageProgress === pages) {
                 const newRead = new GenericRead(
                   title,
-                  timeProgress, 
+                  timeProgress,
                   time,
                   pageProgress,
                   pages
