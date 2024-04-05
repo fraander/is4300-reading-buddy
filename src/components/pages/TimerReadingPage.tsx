@@ -41,7 +41,7 @@ export default function TimerReadingPage({
     <VDiv className="h-full">
       <VDiv className="h-full px-4 bg-rbo-500 text-rbp-700 gap-2 pt-6">
         <VDiv className="my-20">
-        <Timer timeoutInSeconds={time * 60} setProgress={setTimeProgress} />
+          <Timer timeoutInSeconds={time * 60} setProgress={setTimeProgress} />
         </VDiv>
         {timeProgress <= 0 && (
           <HDiv className="mt-4 gap-4 p-3">
@@ -87,7 +87,7 @@ export default function TimerReadingPage({
               }
             }}
           >
-            <HDiv className="gap-1 font-semibold italic">
+            <HDiv className="gap-1 mb-32 font-semibold italic">
               {pageProgress === pages ? "Done!" : "Next page!"}
               <FontAwesomeIcon
                 icon={pageProgress === pages ? faCheck : faArrowRight}
