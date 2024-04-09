@@ -1,5 +1,3 @@
-import { faBook } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { push } from "../../model/routing";
 import { RouteOption, SetRoute } from "../../types/Route";
 import Button from "../utils/Button";
