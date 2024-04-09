@@ -11,7 +11,7 @@ export default function ChatGpt() {
     "/dog2.png",
     "/dog3.png",
     "/dog4.png",
-    "/dog5.png",
+    //"/dog5.png",
   ];
 
   const fetch = async () => {
@@ -26,7 +26,7 @@ export default function ChatGpt() {
 
       console.log("calling");
       const prompt: string =
-        "Write me a very short (not more than 10 words) motivational message to help me, a young child and beginner reader, want to keep reading!";
+        "Write me a very short (not more than 6 words) motivational message to help me, a young child and beginner reader, want to keep reading! Speak like a dog.";
       const stream = await openai.chat.completions.create({
         model: "gpt-4",
         messages: [{ role: "user", content: prompt }],
@@ -61,7 +61,7 @@ export default function ChatGpt() {
     <VDiv onClick={() => fetch()}>
       <img className="h-64 w-64 p-4 brightness" src={dogRoutes[dog]} />
 
-      <div className="p-4 mx-4 mb-4 text-lg font-serif font-medium bg-white rounded-full text-center">
+      <div className="p-4 mx-4 mb-4 h-24 flex flex-col justify-center items-center w-full text-lg font-serif font-medium bg-white rounded-full text-center">
         {message}
       </div>
     </VDiv>

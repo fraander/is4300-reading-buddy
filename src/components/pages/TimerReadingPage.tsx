@@ -40,7 +40,7 @@ export default function TimerReadingPage({
   return (
     <VDiv className="h-full">
       <VDiv className="h-full px-4 bg-rbo-500 text-rbp-700 gap-2 pt-6">
-        <VDiv className="my-20">
+        <VDiv className="my-10">
           <Timer timeoutInSeconds={time * 60} setProgress={setTimeProgress} />
         </VDiv>
         {timeProgress <= 0 && (
