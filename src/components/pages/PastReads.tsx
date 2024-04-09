@@ -9,7 +9,6 @@ function PastReadRow({ read }: { read: Read }) {
       <h2 className="font-semibold font-serif text-rbp-700 line-clamp-2 flex-1">
         {title}
       </h2>
-      {/* <Spacer /> */}
       <p
         className={`font-mono text-xs ${
           pages === pageTarget ? "bg-rbg-200 text-white font-bold" : "bg-rbp-0"
