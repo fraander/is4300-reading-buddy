@@ -46,7 +46,7 @@ export default function ReadingSetup({
         <input
           type="number"
           className="focus:ring-rbo-700-700 outline-none focus:outline-none w-full ring-2 font-mono text-lg ring-rbp-500 rounded-lg p-4"
-          value={time}
+          value={time === 0 ? "" : time}
           onChange={(e) => setTime(Number(e.target.value))}
         />
       </VDiv>
@@ -57,7 +57,7 @@ export default function ReadingSetup({
         <input
           type="number"
           className="focus:ring-rbo-700-700 outline-none focus:outline-none w-full ring-2 font-mono text-lg ring-rbp-500 rounded-lg p-4"
-          value={pages}
+          value={pages === 0 ? "" : pages}
           onChange={(e) => setPages(Number(e.target.value))}
         />
       </VDiv>
