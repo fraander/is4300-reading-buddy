@@ -17,7 +17,10 @@ export default function TimeButton({
       className="text-rbp-500"
       onClick={() => setRoute(push(destination))}
     >
-      <FontAwesomeIcon icon={faBook} /> New Read!
+      <div style={{ display: 'inline-flex', alignItems: 'center' }}>
+    <img src="/Book.png" alt="book icon" style={{ width: '20px', height: '20px', marginRight: '10px' }} />
+    <span>New Read!</span>
+    </div>
     </Button>
   );
 }
