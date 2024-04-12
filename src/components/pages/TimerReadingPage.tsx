@@ -51,7 +51,7 @@ export default function TimerReadingPage({
                 onClick={() => {
                   const newRead = new GenericRead(
                     title,
-                    timeProgress,
+                    time,
                     time,
                     pageProgress,
                     pages
@@ -77,7 +77,7 @@ export default function TimerReadingPage({
               } else if (pageProgress === pages) {
                 const newRead = new GenericRead(
                   title,
-                  timeProgress,
+                  Math.round((((time * 60) - timeProgress) / 60) * 10) / 10,
                   time,
                   pageProgress,
                   pages

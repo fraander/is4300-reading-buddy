@@ -22,12 +22,12 @@ function PastReadRow({ read }: { read: Read }) {
       </p>
       <p
         className={`font-mono text-xs ${
-          duration * 60 - progress === 0
+          duration - progress === 0
             ? "bg-rbg-200 text-white font-bold"
             : "bg-rbp-0"
         } rounded-lg p-2 min-w-20 text-center`}
       >
-        {Math.floor( 100 * progress / 60) / 100}
+        {progress}
         <span className="font-thin">{" / "}</span>
         {duration}
         <br />
@@ -47,3 +47,4 @@ export default function PastReads({ reads }: { reads: Read[] }) {
     </VList>
   );
 }
+

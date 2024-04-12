@@ -23,7 +23,7 @@ class GenericRead implements Read {
     pageTarget: number
   ) {
     this.title = title;
-    this.progress = Math.max(progress, 0); // in seconds
+    this.progress = progress; // in seconds
     this.duration = duration;
     this.pages = pages;
     this.pageTarget = pageTarget;
